@@ -12,6 +12,7 @@ function git_sparse_clone() {
 
 echo 'src-git xd https://github.com/shiyu1314/openwrt-packages' >>feeds.conf.default
 echo 'src-git mihomo https://github.com/morytyann/OpenWrt-mihomo' >>feeds.conf.default
+echo 'src-git smpackage https://github.com/kenzok8/small-package' >>feeds.conf.default
 
 git_sparse_clone $REPO_BRANCH https://github.com/immortalwrt/immortalwrt package/emortal
 git_sparse_clone $REPO_BRANCH https://github.com/immortalwrt/immortalwrt package/utils/mhz
@@ -24,9 +25,12 @@ git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclas
 git clone -b master --depth 1 --single-branch https://github.com/jerrykuku/luci-theme-argon package/xd/luci-theme-argon
 git clone -b master --depth 1 --single-branch https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone -b v5-lua --depth 1 --single-branch https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+git clone -b v5-lua --depth 1 --single-branch https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
+git clone -b v5-lua --depth 1 --single-branch https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 ./scripts/feeds update -a
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-dockerman
