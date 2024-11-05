@@ -31,6 +31,7 @@ git clone -b js --depth 1 --single-branch https://github.com/UnblockNeteaseMusic
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 ./scripts/feeds update -a
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
+rm -rf feeds/smpackage/{UnblockNeteaseMusic,luci-app-unblockneteasemusic,mosdns,luci-app-mosdns,luci-app-openclash,luci-app-mihomo,mihomo,luci-theme-argon}
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-dockerman
