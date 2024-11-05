@@ -13,25 +13,25 @@ on:
       OP_IP:
         description: '静态IP地址'     
         required: false
-        default: '192.168.2.2' 
+        default: '192.168.3.10' 
         type: string
 
       OP_rootfs:
         description: '预设镜像大小'     
         required: false
-        default: '600' 
+        default: '800' 
         type: string
    
       OP_author:
         description: '定制作者'     
         required: false
-        default: 'shiyu1314' 
+        default: 'Benefit66' 
         type: string    
 
       CUSTOM_PLUGINS:
         description: '自定义插件名称，用空格分隔'
         required: false
-        default: 'luci-app-dockerman luci-theme-argon luci-app-ttyd luci-app-diskman luci-app-hd-idle luci-app-mihomo luci-app-samba4 luci-app-emby luci-app-turboacc'
+        default: 'luci-app-dockerman luci-theme-argon luci-app-ttyd luci-app-diskman luci-app-hd-idle luci-app-mihomo luci-app-samba4 luci-app-emby luci-app-turboacc luci-app-openclash luci-app-mosdns luci-app-ddnsto luci-app-linkease luci-app-adguardhome luci-app-unblockneteasemusic luci-app-usb-printer luci-app-vlmcsd luci-app-acme luci-app-ddns luci-app-upnp luci-app-aria2 luci-app-vaultwarden luci-app-lucky luci-app-wolplus luci-app-ddns-go luci-app-rclone luci-app-alist luci-app-arpbind luci-app-zerotier luci-app-clouddrive2 luci-app-verysync'
         type: string
 
 env:

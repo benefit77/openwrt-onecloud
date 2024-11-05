@@ -25,8 +25,8 @@ git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclas
 git clone -b master --depth 1 --single-branch https://github.com/jerrykuku/luci-theme-argon package/xd/luci-theme-argon
 git clone -b master --depth 1 --single-branch https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone -b v5-lua --depth 1 --single-branch https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
-git clone -b v5-lua --depth 1 --single-branch https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
-git clone -b v5-lua --depth 1 --single-branch https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+git clone -b main --depth 1 --single-branch https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
+git clone -b js --depth 1 --single-branch https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 ./scripts/feeds update -a
