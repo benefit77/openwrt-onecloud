@@ -12,7 +12,7 @@ function git_sparse_clone() {
 
 echo 'src-git xd https://github.com/shiyu1314/openwrt-packages' >>feeds.conf.default
 echo 'src-git mihomo https://github.com/morytyann/OpenWrt-mihomo' >>feeds.conf.default
-echo 'src-git smpackage https://github.com/kenzok8/small-package' >>feeds.conf.default
+# echo 'src-git smpackage https://github.com/kenzok8/small-package' >>feeds.conf.default
 
 git_sparse_clone $REPO_BRANCH https://github.com/immortalwrt/immortalwrt package/emortal
 git_sparse_clone $REPO_BRANCH https://github.com/immortalwrt/immortalwrt package/utils/mhz
@@ -31,8 +31,8 @@ git clone -b js --depth 1 --single-branch https://github.com/UnblockNeteaseMusic
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 ./scripts/feeds update -a
 rm -rf feeds/packages/lang/golang
-rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
-rm -rf feeds/smpackage/{UnblockNeteaseMusic,luci-app-unblockneteasemusic,mosdns,luci-app-mosdns,luci-app-openclash,luci-app-mihomo,mihomo,luci-theme-argon}
+# rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
+# rm -rf feeds/smpackage/{UnblockNeteaseMusic,luci-app-unblockneteasemusic,mosdns,luci-app-mosdns,luci-app-openclash,luci-app-mihomo,mihomo,luci-theme-argon}
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-dockerman
