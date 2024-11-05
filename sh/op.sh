@@ -30,6 +30,7 @@ git clone -b js --depth 1 --single-branch https://github.com/UnblockNeteaseMusic
 
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 ./scripts/feeds update -a
+rm -rf feeds/packages/lang/golang
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 rm -rf feeds/smpackage/{UnblockNeteaseMusic,luci-app-unblockneteasemusic,mosdns,luci-app-mosdns,luci-app-openclash,luci-app-mihomo,mihomo,luci-theme-argon}
 rm -rf feeds/packages/net/v2ray-geodata
@@ -43,6 +44,8 @@ cp -rf luci-app-openclash package
 cp -rf emortal package
 cp -rf luci-base feeds/luci/modules
 cp -rf luci-mod-status feeds/luci/modules/
+
+git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
