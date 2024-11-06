@@ -28,8 +28,8 @@ git clone -b v5-lua --depth 1 --single-branch https://github.com/sbwml/luci-app-
 git clone -b main --depth 1 --single-branch https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 git clone -b js --depth 1 --single-branch https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 
-curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 ./scripts/feeds update -a
+rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-dockerman
@@ -41,6 +41,10 @@ cp -rf luci-app-openclash package
 cp -rf emortal package
 cp -rf luci-base feeds/luci/modules
 cp -rf luci-mod-status feeds/luci/modules/
+
+git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
+
+curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
