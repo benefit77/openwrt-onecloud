@@ -31,6 +31,7 @@ git clone -b js --depth 1 --single-branch https://github.com/UnblockNeteaseMusic
 ./scripts/feeds update -a
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 
+rm -rf feeds/kiddin9/luci-app-adguardhome
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/mosdns
