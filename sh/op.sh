@@ -27,6 +27,7 @@ git clone -b master --depth 1 --single-branch https://github.com/sbwml/v2ray-geo
 git clone -b v5-lua --depth 1 --single-branch https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 git clone -b main --depth 1 --single-branch https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 git clone -b js --depth 1 --single-branch https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 
 ./scripts/feeds update -a
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
