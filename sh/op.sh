@@ -12,6 +12,8 @@ function git_sparse_clone() {
 
 echo 'src-git xd https://github.com/shiyu1314/openwrt-packages' >>feeds.conf.default
 echo 'src-git mihomo https://github.com/morytyann/OpenWrt-mihomo' >>feeds.conf.default
+echo 'src-git nas https://github.com/linkease/nas-packages.git;master' >> feeds.conf.default
+echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
 echo 'src-git kiddin9 https://github.com/kiddin9/kwrt-packages' >>feeds.conf.default
 
 git_sparse_clone $REPO_BRANCH https://github.com/immortalwrt/immortalwrt package/emortal
