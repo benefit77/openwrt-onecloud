@@ -12,8 +12,6 @@ function git_sparse_clone() {
 
 echo 'src-git xd https://github.com/shiyu1314/openwrt-packages' >>feeds.conf.default
 echo 'src-git mihomo https://github.com/morytyann/OpenWrt-mihomo' >>feeds.conf.default
-echo 'src-git nas https://github.com/linkease/nas-packages.git;master' >> feeds.conf.default
-echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
 echo 'src-git kiddin9 https://github.com/kiddin9/kwrt-packages' >>feeds.conf.default
 
 git_sparse_clone $REPO_BRANCH https://github.com/immortalwrt/immortalwrt package/emortal
@@ -30,7 +28,6 @@ git clone -b v5-lua --depth 1 --single-branch https://github.com/sbwml/luci-app-
 git clone -b main --depth 1 --single-branch https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 git clone -b js --depth 1 --single-branch https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
-git clone https://github.com/kiddin9/luci-app-wizard.git package/luci-app-wizard
 
 ./scripts/feeds update -a
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
