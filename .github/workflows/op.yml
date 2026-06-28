@@ -14,7 +14,7 @@ on:
       OP_IP:
         description: '静态IP地址'     
         required: false
-        default: '192.168.2.2' 
+        default: '192.168.6.10' 
         type: string
 
       OP_rootfs:
@@ -26,7 +26,7 @@ on:
       OP_author:
         description: '定制作者'     
         required: false
-        default: 'shiyu1314' 
+        default: 'Benefit66' 
         type: string    
 
       CUSTOM_PLUGINS:
