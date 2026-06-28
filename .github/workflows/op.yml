@@ -215,15 +215,31 @@ jobs:
     - name: 整理文件
       id: organize
       run: |
+        cd openwrt/bin/targets/*/*/
+        # List what we have
+        echo "=== Files in $(pwd) ==="
+        ls -la
         # Decompress .gz images if any exist
-        ls openwrt/bin/targets/*/*/*.gz 2>/dev/null && gunzip openwrt/bin/targets/*/*/*.gz || true
-        for f in openwrt/bin/targets/*/*/*.img; do
-          [ -f "$f" ] && xz -9 --threads=0 --compress "$f"
-        done
-        rm -rf openwrt/bin/targets/*/*/*.img 2>/dev/null || true
-        rm -rf openwrt/bin/targets/*/*/*.gz 2>/dev/null || true
-        cd openwrt/bin/targets/*/*
-        mv *.xz ${{ env.REPO_BRANCH }}-k6.6-onecloud_burn.img.xz
+        shopt -s nullglob
+        gz_files=(*.gz)
+        if [ ${#gz_files[@]} -gt 0 ]; then
+          gunzip "${gz_files[@]}"
+        fi
+        # xz compress .img files
+        img_files=(*.img)
+        if [ ${#img_files[@]} -gt 0 ]; then
+          for f in "${img_files[@]}"; do
+            xz -9 --threads=0 --compress "$f"
+          done
+          rm -f "${img_files[@]}"
+        fi
+        rm -f "${gz_files[@]}"
+        shopt -u nullglob
+        # Rename xz file
+        xz_file=$(ls *.xz 2>/dev/null | head -1)
+        if [ -n "$xz_file" ]; then
+          mv -f "$xz_file" "${{ env.REPO_BRANCH }}-k6.6-onecloud_burn.img.xz"
+        fi
         rm -rf packages
         rm -rf *.buildinfo
         rm -rf profiles.json
