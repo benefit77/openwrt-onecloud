@@ -32,7 +32,7 @@ on:
       CUSTOM_PLUGINS:
         description: '自定义插件名称，用空格分隔'
         required: false
-        default: 'luci-app-dockerman luci-theme-m3e luci-app-ttyd luci-app-diskman luci-app-hd-idle luci-app-momo luci-app-samba4 luci-app-emby luci-app-openlist2'
+        default: 'luci-app-dockerman luci-theme-m3e luci-app-ttyd luci-app-diskman luci-app-hd-idle luci-app-samba4 luci-app-openclash luci-app-emby luci-app-openlist2 luci-app-openclash'
         type: string
 
 env:
@@ -215,12 +215,13 @@ jobs:
     - name: 整理文件
       id: organize
       run: |
-        gunzip openwrt/bin/targets/*/*/*.gz
+        # Decompress .gz images if any exist
+        ls openwrt/bin/targets/*/*/*.gz 2>/dev/null && gunzip openwrt/bin/targets/*/*/*.gz || true
         for f in openwrt/bin/targets/*/*/*.img; do
-          xz -9 --threads=0 --compress "$f"
+          [ -f "$f" ] && xz -9 --threads=0 --compress "$f"
         done
-        rm -rf openwrt/bin/targets/*/*/*.img
-        rm -rf openwrt/bin/targets/*/*/*.gz
+        rm -rf openwrt/bin/targets/*/*/*.img 2>/dev/null || true
+        rm -rf openwrt/bin/targets/*/*/*.gz 2>/dev/null || true
         cd openwrt/bin/targets/*/*
         mv *.xz ${{ env.REPO_BRANCH }}-k6.6-onecloud_burn.img.xz
         rm -rf packages

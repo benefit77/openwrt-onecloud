@@ -136,6 +136,8 @@ git clone https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/l
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
+# OpenClash
+git clone --depth 1 --single-branch https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
