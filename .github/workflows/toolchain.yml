@@ -92,7 +92,7 @@ jobs:
             
     - name: patch修补
       run: |
-        [ -e patch ] && cp -rf patch/apk-tools/*.patch openwrt/package/system/apk/patches
+        [ -e openwrt/package/system/apk/patches ] && cp -rf patch/apk-tools/*.patch openwrt/package/system/apk/patches || true
         sed -i 's#https://git\.openwrt\.org/feed#https://github.com/openwrt#g; s#https://git\.openwrt\.org/project#https://github.com/openwrt#g' openwrt/feeds.conf.default
         cd openwrt
         ./scripts/feeds update -a
