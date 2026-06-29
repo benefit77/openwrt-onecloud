@@ -160,6 +160,8 @@ jobs:
       run: |
         git clone --depth=1 --single-branch --filter=blob:none --sparse https://github.com/coolsnowwolf/lede
         cd lede && git sparse-checkout set target/linux/amlogic
+        # 先删除官方 OpenWrt 已有的 amlogic 目标，避免 mv 嵌套
+        rm -rf ../openwrt/target/linux/amlogic
         mv target/linux/amlogic ../openwrt/target/linux/
         cd .. && rm -rf lede
          
