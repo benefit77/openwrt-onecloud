@@ -159,8 +159,8 @@ jobs:
     - name: 添加玩客云
       run: |
         # 使用本地内核源码替换官方 OpenWrt 的 amlogic 目标
-        rm -rf ../openwrt/target/linux/amlogic
-        cp -rf $GITHUB_WORKSPACE/target/linux/amlogic ../openwrt/target/linux/
+        rm -rf $GITHUB_WORKSPACE/openwrt/target/linux/amlogic
+        cp -rf $GITHUB_WORKSPACE/target/linux/amlogic $GITHUB_WORKSPACE/openwrt/target/linux/
          
     - name: 加载自定义配置
       run: |
